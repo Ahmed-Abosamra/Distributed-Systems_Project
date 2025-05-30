@@ -5,6 +5,7 @@ import java.io.*;
 
 public class Host extends UnicastRemoteObject implements HostI {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private final List<Player> players;
     private final Map<String, ClientI> clientStubs;
@@ -257,7 +258,7 @@ public class Host extends UnicastRemoteObject implements HostI {
             gameEnded = true;
 
             if (alivePlayers.size() == 1) {
-                Player winner = alivePlayers.get(0);
+                Player winner = alivePlayers.getFirst();
                 System.out.println("GAME OVER! Winner: " + winner.id);
                 broadcastGameEnd(winner.id);
             } else {

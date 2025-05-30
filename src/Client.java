@@ -9,6 +9,7 @@ import java.io.*;
 
 public class Client extends UnicastRemoteObject implements ClientI {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private HostI host;
@@ -37,7 +38,7 @@ public class Client extends UnicastRemoteObject implements ClientI {
 
     public void start() throws Exception {
         System.out.println("\n************************************");
-        System.out.println("* WELCOME TO THE SHOOTER GAME     *");
+        System.out.println("*   WELCOME TO THE SHOOTER GAME    *");
         System.out.println("************************************");
         System.out.println("* Please choose an option:         *");
         System.out.println("*----------------------------------*");
@@ -147,7 +148,7 @@ public class Client extends UnicastRemoteObject implements ClientI {
                 }
             }
 
-            List<Player> players = null;
+            List<Player> players;
             try {
                 players = host.getPlayers();
             } catch (RemoteException e) {
